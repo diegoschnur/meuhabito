@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="db_mentor@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="db_mentor">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="db_testes_software"/>
+    <schema id="4" parent="1" name="ecomm"/>
+    <schema id="5" parent="1" name="information_schema"/>
+    <schema id="6" parent="1" name="loja"/>
+    <schema id="7" parent="1" name="meuhabito"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="sakila"/>
+    <schema id="11" parent="1" name="sys"/>
+    <schema id="12" parent="1" name="world"/>
+    <table id="13" parent="2" name="tbl_fichastecnicas"/>
+    <table id="14" parent="2" name="tbl_projetos"/>
+    <table id="15" parent="2" name="tbl_relatorios"/>
+    <table id="16" parent="2" name="tbl_solicitacoes"/>
+    <table id="17" parent="2" name="tbl_usuarios"/>
+    <column id="18" parent="13" name="id_ft">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="13" name="nome_ft">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="13" name="dataInicial_ft">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="21" parent="13" name="dataFinal_ft">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="22" parent="13" name="tempoTeste_ft">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="23" parent="13" name="localTeste_ft">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="24" parent="13" name="cliente_ft">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="25" parent="13" name="acompanhamento_ft">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="26" parent="13" name="componentes_ft">
+      <Position>9</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="27" parent="13" name="metodologia_ft">
+      <Position>10</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="28" parent="13" name="observacoes_ft">
+      <Position>11</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="29" parent="13" name="visibilidade_ft">
+      <Position>12</Position>
+      <DataType>enum(&apos;PR&apos;, &apos;PU&apos;)|0</DataType>
+      <DefaultExpression>&apos;PR&apos;</DefaultExpression>
+    </column>
+    <column id="30" parent="13" name="destaque_ft">
+      <Position>13</Position>
+      <DataType>enum(&apos;S&apos;, &apos;N&apos;)|0</DataType>
+      <DefaultExpression>&apos;N&apos;</DefaultExpression>
+    </column>
+    <column id="31" parent="13" name="status_ft">
+      <Position>14</Position>
+      <DataType>char(2)|0</DataType>
+    </column>
+    <column id="32" parent="13" name="id_solicitacao_ft">
+      <Position>15</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="33" parent="13" name="id_usuario_ft">
+      <Position>16</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="34" parent="13" name="fk_idSolicitacao_sol_idx">
+      <ColNames>id_solicitacao_ft</ColNames>
+    </index>
+    <index id="35" parent="13" name="fk_usuario_fichatecnica_idx">
+      <ColNames>id_usuario_ft</ColNames>
+    </index>
+    <index id="36" parent="13" name="nome_ft_UNIQUE">
+      <ColNames>nome_ft</ColNames>
+    </index>
+    <key id="37" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_ft</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="38" parent="13" name="fk_solicitacao_fichatecnica">
+      <ColNames>id_solicitacao_ft</ColNames>
+      <RefSchemaName>db_mentor</RefSchemaName>
+      <RefTableName>tbl_solicitacoes</RefTableName>
+      <RefColNames>id_sol</RefColNames>
+    </foreign-key>
+    <foreign-key id="39" parent="13" name="fk_usuario_fichatecnica">
+      <ColNames>id_usuario_ft</ColNames>
+      <RefSchemaName>db_mentor</RefSchemaName>
+      <RefTableName>tbl_usuarios</RefTableName>
+      <RefColNames>id_us</RefColNames>
+    </foreign-key>
+    <column id="40" parent="14" name="id_prj">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="41" parent="14" name="nome_prj">
+      <Position>2</Position>
+      <DataType>varchar(70)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="14" name="descricao_prj">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="43" parent="14" name="status_prj">
+      <Position>4</Position>
+      <DataType>char(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;I&apos;</DefaultExpression>
+    </column>
+    <column id="44" parent="14" name="id_usuario_prj">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="45" parent="14" name="fk_usuario_projeto_idx">
+      <ColNames>id_usuario_prj</ColNames>
+    </index>
+    <index id="46" parent="14" name="nome_projeto_UNIQUE">
+      <ColNames>nome_prj</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="47" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_prj</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="48" parent="14" name="nome_projeto_UNIQUE">
+      <ColNames>nome_prj</ColNames>
+      <UnderlyingIndexName>nome_projeto_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="49" parent="14" name="fk_usuario_projeto">
+      <ColNames>id_usuario_prj</ColNames>
+      <RefSchemaName>db_mentor</RefSchemaName>
+      <RefTableName>tbl_usuarios</RefTableName>
+      <RefColNames>id_us</RefColNames>
+    </foreign-key>
+    <column id="50" parent="15" name="id_rel">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="51" parent="15" name="idSolicitacao_rel">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="52" parent="15" name="obsRelator_rel">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="53" parent="15" name="obsDesenvolvedor_rel">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="54" parent="15" name="statusRelator_rel">
+      <Position>5</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="55" parent="15" name="statusDesenvolvedor_rel">
+      <Position>6</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="56" parent="15" name="id_Usuario_rel">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="57" parent="15" name="fk_idSolicitacao_rel_idx">
+      <ColNames>idSolicitacao_rel</ColNames>
+    </index>
+    <index id="58" parent="15" name="fk_usuario_relatorio_idx">
+      <ColNames>id_Usuario_rel</ColNames>
+    </index>
+    <key id="59" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_rel</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="60" parent="15" name="fk_solicitacao_relatorio">
+      <ColNames>idSolicitacao_rel</ColNames>
+      <RefSchemaName>db_mentor</RefSchemaName>
+      <RefTableName>tbl_solicitacoes</RefTableName>
+      <RefColNames>id_sol</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="61" parent="15" name="fk_usuario_relatorio">
+      <ColNames>id_Usuario_rel</ColNames>
+      <RefSchemaName>db_mentor</RefSchemaName>
+      <RefTableName>tbl_usuarios</RefTableName>
+      <RefColNames>id_us</RefColNames>
+    </foreign-key>
+    <column id="62" parent="16" name="id_sol">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="63" parent="16" name="nome_sol">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="16" name="dataAbertura_sol">
+      <Position>3</Position>
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="16" name="dataNecessidade_sol">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="66" parent="16" name="tempoTeste_sol">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="67" parent="16" name="unidadeMedida_sol">
+      <Position>6</Position>
+      <DataType>char(2)|0</DataType>
+    </column>
+    <column id="68" parent="16" name="componentesTestar_sol">
+      <Position>7</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="69" parent="16" name="metodologia_sol">
+      <Position>8</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="70" parent="16" name="observacoes_sol">
+      <Position>9</Position>
+      <DataType>mediumtext|0</DataType>
+    </column>
+    <column id="71" parent="16" name="visibilidade_sol">
+      <Position>10</Position>
+      <DataType>char(2)|0</DataType>
+      <DefaultExpression>&apos;PR&apos;</DefaultExpression>
+    </column>
+    <column id="72" parent="16" name="status_sol">
+      <Position>11</Position>
+      <DataType>char(2)|0</DataType>
+    </column>
+    <column id="73" parent="16" name="idProjeto_sol">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="74" parent="16" name="idUsuario_sol">
+      <Position>13</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <index id="75" parent="16" name="fk_idprojeto_idx">
+      <ColNames>idProjeto_sol</ColNames>
+    </index>
+    <index id="76" parent="16" name="fk_idusuario_usuario_idx">
+      <ColNames>idUsuario_sol</ColNames>
+    </index>
+    <index id="77" parent="16" name="nome_sol_UNIQUE">
+      <ColNames>nome_sol</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="78" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_sol</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="79" parent="16" name="nome_sol_UNIQUE">
+      <ColNames>nome_sol</ColNames>
+      <UnderlyingIndexName>nome_sol_UNIQUE</UnderlyingIndexName>
+    </key>
+    <foreign-key id="80" parent="16" name="fk_solicitacao_projeto">
+      <ColNames>idProjeto_sol</ColNames>
+      <RefSchemaName>db_mentor</RefSchemaName>
+      <RefTableName>tbl_projetos</RefTableName>
+      <RefColNames>id_prj</RefColNames>
+    </foreign-key>
+    <foreign-key id="81" parent="16" name="fk_solicitacao_usuario">
+      <ColNames>idUsuario_sol</ColNames>
+      <RefSchemaName>db_mentor</RefSchemaName>
+      <RefTableName>tbl_usuarios</RefTableName>
+      <RefColNames>id_us</RefColNames>
+    </foreign-key>
+    <column id="82" parent="17" name="id_us">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="83" parent="17" name="nome_us">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="84" parent="17" name="email_us">
+      <Position>3</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="85" parent="17" name="login_us">
+      <Position>4</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="86" parent="17" name="senha_us">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="87" parent="17" name="telefone_us">
+      <Position>6</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="88" parent="17" name="status_us">
+      <Position>7</Position>
+      <DataType>char(1)|0</DataType>
+      <DefaultExpression>&apos;I&apos;</DefaultExpression>
+    </column>
+    <column id="89" parent="17" name="permissao_relator_us">
+      <Position>8</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="90" parent="17" name="permissao_Grelator_us">
+      <Position>9</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="91" parent="17" name="permissao_desenvolvedor_us">
+      <Position>10</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="92" parent="17" name="permissao_Gdesenvolvedor_us">
+      <Position>11</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="93" parent="17" name="permissao_secretario_us">
+      <Position>12</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <column id="94" parent="17" name="permissao_visualizador_us">
+      <Position>13</Position>
+      <DataType>char(1)|0</DataType>
+    </column>
+    <key id="95" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_us</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
