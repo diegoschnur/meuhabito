@@ -18,10 +18,27 @@ class HabitosController extends Controller
         return view ('habitos.create');
     }
 
+    public function edit($id){
+        $habito = Habito::find($id);
+
+        return view('habitos.edit', compact('habito'));
+    }
+
+    public function update(HabitoRequest $request, $id){
+        $habito = Habito::find($id)->update($request->all());
+
+        return redirect('habitos');
+    }
+
     public function store(HabitoRequest $request){
         $novo_habito = $request->all();
         Habito::create($novo_habito);
 
+        return redirect('habitos');
+    }
+
+    public function destroy($id){
+        Habito::find($id)->delete();
         return redirect('habitos');
     }
 }
