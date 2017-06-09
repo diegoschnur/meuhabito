@@ -27,18 +27,18 @@ class HabitosController extends Controller
     public function update(HabitoRequest $request, $id){
         $habito = Habito::find($id)->update($request->all());
 
-        return redirect('habitos');
+        return redirect()->route('habitos');
     }
 
     public function store(HabitoRequest $request){
         $novo_habito = $request->all();
         Habito::create($novo_habito);
 
-        return redirect('habitos');
+        return redirect()->route('habitos');
     }
 
     public function destroy($id){
         Habito::find($id)->delete();
-        return redirect('habitos');
+        return redirect()->route('habitos');
     }
 }

@@ -14,12 +14,14 @@
             </ul>
         @endif
 
-        {!! Form::open(['url' => 'habitos/store']) !!}
+        {!! Form::open(['route' => 'habitos.store']) !!}
 
+        <!-- Campo Nome -->
         <div class="form-group">
             {!! Form::label('nome', 'Nome') !!}
             {!! Form::text('nome', null, ['class'=>'form-control']) !!}
         </div>
+
 
         <div class="form-group">
             {!! Form::label('descricao', 'Descrição') !!}

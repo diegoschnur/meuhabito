@@ -26,8 +26,19 @@
                 <tr>
                     <td>{{ $hab->nome  }}</td>
                     <td>{{ $hab->descricao  }}</td>
-                    <td>{{ $hab->tp_habito  }}</td>
-                    <td></td>
+
+                    @if($hab->tp_habito == 'B')
+                        <td>Bom</td>
+                    @elseif($hab->tp_habito == 'R')
+                        <td>Ruim</td>
+                    @endif
+
+                    <td>
+                        <a href="{{ route('habitos.edit', ['id'=>$hab->id]) }}"
+                           class="btn-sm btn-success">Editar</a>
+                        <a href="{{ route('habitos.destroy', ['id'=>$hab->id]) }}"
+                           class="btn-sm btn-danger">Remover</a>
+                    </td>
                 </tr>
             @endforeach
             </tbody>

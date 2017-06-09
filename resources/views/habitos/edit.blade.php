@@ -14,7 +14,7 @@
             </ul>
         @endif
 
-        {!! Form::open(['url' => "habitos/$habito->id/update", 'method'=>'put']) !!}
+        {!! Form::open(['route' => ["habitos.update", $habito->id], 'method'=>'put']) !!}
 
         <div class="form-group">
             {!! Form::label('nome', 'Nome') !!}
